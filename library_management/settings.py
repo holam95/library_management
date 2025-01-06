@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -148,3 +149,10 @@ DATABASES['default'] = dj_database_url.config(default=os.getenv('DATABASE_URL'))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
+
+
+
+DATABASES['default'] = dj_database_url.config(default=os.getenv('DATABASE_URL'))
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
